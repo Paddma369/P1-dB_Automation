@@ -1197,9 +1197,19 @@ class MainWindow(QMainWindow):
 
         splitter.setSizes([480, 960])
 
-        self.status_bar = QStatusBar()
-        self.setStatusBar(self.status_bar)
-        self._set_status("Ready" + (" - Simulation Mode" if USE_SIMULATION else ""))
+        #self.status_bar = QStatusBar()
+        #self.setStatusBar(self.status_bar)
+        #self._set_status("Ready" + (" - Simulation Mode" if USE_SIMULATION else ""))
+        
+        #Status bar with footer
+         self.status_bar = QStatusBar()
+         self.setStatusBar(self.status_bar)
+         self._set_status("Ready")
+
+        #Add developer credit
+        footer_label = QLabel("👩‍💻 Developed by Padma")
+        footer_label.setStyleSheet("color: #4fc3f7; font-weight: bold; padding: 0px 10px;")
+        self.status_bar.addPermanentWidget(footer_label)
 
     def _build_toolbar(self) -> QHBoxLayout:
         layout = QHBoxLayout()
